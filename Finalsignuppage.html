@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        function validate() {
+            var firstname = document.getElementById("firstname");
+            var inputemail = document.getElementById("email");
+            var validemailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            var region = document.getElementById("region");
+            var phonenumber = document.getElementById("phonenumber");
+            var password = document.getElementById("pass");
+            var repeatpassword = document.getElementById("repeatpass");
+            if (firstname.value == "") {
+                alert("Please provide First name ");
+                firstname.style.border = "solid 1px red";
+                return false;
+            }
+
+            if (inputemail.value.match(validemailformat)) {
+
+            }
+            else {
+                alert("Please enter a vaild email address!");
+                inputemail.style.border = "solid 4px red";
+
+                return false;
+            }
+
+            if (region.value == "Region") {
+                alert("Please select a region");
+                return false;
+            }
+
+            if (phonenumber.value.trim().length < 10) {
+                alert("Please provide a 10 digit Phone number");
+                phonenumber.style.border = "solid 5px red";
+                return false;
+
+            }
+            if (password.value.trim().length < 8 ) {
+                alert("Please provide a password which has 8-15 charachters ");
+                password.style.border = "solid 6px red";
+                return false;
+                
+            }
+            if (password.value.trim().length > 15 ) {
+                alert("Please provide a password which has 8-15 characters ");
+                password.style.border = "solid 6px pink";
+                return false;
+                
+            }
+            if (repeatpassword.value == "") {
+                alert("Please provide the password again ")
+                repeatpassword.style.border = "solid 7px red";
+                return false;
+            }
+            if (password.value != repeatpassword.value) {
+                alert("Passwords do not match");
+                repeatpassword.style.border = "solid 8px maroon";
+                return false;
+            }
+            else {
+                true;
+            }
+        }
+    </script>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    /* Add a background color when the inputs get focus */
+    input[type=text]:focus,
+    input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Set a style for all buttons */
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    button:hover {
+        opacity: 1;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #f44336;
+    }
+
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn,
+    .signupbtn {
+        float: left;
+        width: 50%;
+    }
+
+    /* Add padding to container elements */
+    .container {
+        padding: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: #474e5d;
+        padding-top: 0px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 90%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* Style the horizontal ruler */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* The Close Button (x) */
+    .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #f44336;
+        cursor: pointer;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+
+        .cancelbtn,
+        .signupbtn {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+
+
+
+    <h2 align="center"><b>Sign Up Form</b></h2>
+    <center>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+    </center>
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <form class="modal-content" action="/action_page.php">
+            <div class="container">
+
+                <h1 align="center">Sign Up (* Required fields)</h1>
+                <div id="reg form">
+                    <form name="form">
+                        <label for"first-name"><b>First Name*: </b></label>
+                        <input id="firstname" name="first-name" placeholder="Lakshay" type="text" />
+                        <div id="reg form"> <label for"last-name"><b>Last Name : </b></label>
+                            <input id="lastname" name="last-name" placeholder="Chandra" type="text" />
+                            <label for="gender"><b>Gender: </b></label>
+
+                        </div>
+                        <p>
+                        <div>
+                            <input type="radio" name="gender-choice" value="choice-1">
+                            <label for"gender-male">Male </label>
+
+                            <p>
+                                <input type="radio" name="gender-choice" value="choice-2">
+                                <label for"gender-female">Female</label>
+
+                            </p>
+                            <p> <input type="radio" name="gender-choice" value="choice-3">
+                                <label for"others">Others</label>
+
+                            </p>
+                        </div>
+                        </p>
+                        <br>
+                        <p>
+                            <label for="email"><b>Email* :</b></label>
+                            <input id="email" placeholder="abc@gmail.com" name="email" type="text" />
+
+                        <div><label for="region"><b>Region* :</b></label>
+                            <p>
+                                <select name="region" id="region">
+                                    <option value="Region" selected disabled></option>
+                                    <option value="delhi">Delhi</option>
+                                    <option value="gurgaon">Gurgaon</option>
+                                    <option value="noida">Noida</option>
+                                    <option value="ghaziabad">Ghaziabad</option>
+                            </p>
+
+
+                            </select>
+                            <br><br>
+                        </div>
+                        <p>
+                        <div id="reg form">
+                            <label for"phone-number"><b>Phone Number* : </b></label>
+                            <input id="phonenumber" name="phone number" placeholder="0000000000" type="text" />
+                        </div>
+                        <p>
+                        <div>
+                            <label for"item-exchange"><b>Type of Item You Want to Give:</b></label>
+                            <select name="exchange-give">
+                                <option value="item" selected disabled>Item</option>
+                                <option value="grocery">Grocery</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="stationery">Stationery Items</option>
+                                <option value="clothes">Clothes</option>
+                            </select>
+                            <p>
+                            <div>
+                                <label for"item-inexchange"><b>Type of Item You Want to Get:</b></label>
+                                <select name="exchange-get">
+                                    <option value="item" selected disabled>Item</option>
+                                    <option value="grocery">Grocery</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="stationery">Stationery Items</option>
+                                    <option value="clothes">Clothes</option>
+                                </select><br><br>
+                    </form>
+                </div>
+                <br>
+                <div>
+                    <form onsubmit="return validate()" action="message.html">
+                        <label for="Password"> <b>Password* :</b></label>
+                        <input id="pass" placeholder="Password" type="password" /><br><br>
+                        <label for="Repeat Password"><b> Confirm password* :</b></label>
+                        <input id="repeatpass" placeholder="Confirm password" type="password" />
+                        <br><br>
+                        <button type="submit">Submit</button>
+
+
+
+
+                    </form>
+                </div>
+
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
